@@ -7,4 +7,4 @@ this app take:
 -Write external storage permission so you can download your uploaded files.
 
 App developing is focus on Functionality more than User Interface, 
-// so kindly do not make all of your concentrate on UI  
+So kindly do not make all of your concentrate on UI  
