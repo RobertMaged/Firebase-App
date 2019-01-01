@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/tan_background"
+tools:context="com.robert.android.firebaseapp.MainActivity">
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/tan_background"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:id="@+id/grid_layout">
+
+        <!-- Numbers category -->
+        <FrameLayout
+            android:tag="Notes Frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:background="@color/category_numbers"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1">
+
+            <TextView
+                android:id="@+id/numbers"
+                style="@style/CategoryStyle"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Notes" />
+        </FrameLayout>
+
+        <!-- Family category -->
+        <FrameLayout
+            android:tag="Storage Frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:background="@color/category_family">
+
+            <TextView
+                android:id="@+id/family"
+                style="@style/CategoryStyle"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Storage" />
+        </FrameLayout>
+
+        <!-- Colors category -->
+        <FrameLayout
+            android:tag="Weather Frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:background="@color/category_colors">
+
+            <TextView
+                android:id="@+id/colors"
+                style="@style/CategoryStyle"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Weather" />
+        </FrameLayout>
+
+        <!-- Phrases category -->
+        <FrameLayout
+            android:tag="Cites Frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:background="@color/category_phrases">
+
+            <TextView
+                android:id="@+id/phrases"
+                style="@style/CategoryStyle"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="Cites" />
+        </FrameLayout>
+
+    </GridLayout>
+
+</RelativeLayout>
+
+
+<!--</LinearLayout>-->
+
+
+
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/tan_background"-->
+    <!--tools:context="com.robert.android.firebaseapp.MainActivity">-->
+
+
+    <!--&lt;!&ndash; Numbers category &ndash;&gt;-->
+    <!--<FrameLayout-->
+        <!--android:id="@+id/notes_frame"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/category_numbers"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true">-->
+        <!--<TextView-->
+            <!--android:id="@+id/numbers"-->
+            <!--style="@style/CategoryStyle"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:text="Notes" />-->
+    <!--</FrameLayout>-->
+
+    <!--&lt;!&ndash; Family category &ndash;&gt;-->
+    <!--<FrameLayout-->
+        <!--android:id="@+id/storage_frame"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/category_family"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_toRightOf="@id/notes_frame"-->
+        <!--android:layout_toEndOf="@id/notes_frame">-->
+        <!--<TextView-->
+            <!--android:id="@+id/family"-->
+            <!--style="@style/CategoryStyle"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:text="Storage" />-->
+    <!--</FrameLayout>-->
+
+    <!--&lt;!&ndash; Colors category &ndash;&gt;-->
+    <!--<FrameLayout-->
+        <!--android:id="@+id/weather_frame"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/category_colors"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true">-->
+        <!--<TextView-->
+            <!--android:id="@+id/colors"-->
+            <!--style="@style/CategoryStyle"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:text="Weather" />-->
+    <!--</FrameLayout>-->
+
+    <!--&lt;!&ndash; Phrases category &ndash;&gt;-->
+    <!--<FrameLayout-->
+        <!--android:id="@+id/cites_frame"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/category_phrases"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true">-->
+        <!--<TextView-->
+            <!--android:id="@+id/phrases"-->
+            <!--style="@style/CategoryStyle"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:text="Cites" />-->
+    <!--</FrameLayout>-->
+<!--</RelativeLayout>-->
