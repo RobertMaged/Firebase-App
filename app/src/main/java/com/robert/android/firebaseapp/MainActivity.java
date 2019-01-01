@@ -222,42 +222,49 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //View the info Entered by user and can be edited
-        if ( item.getItemId() == R.id.profile_option ){
-            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
+        if ( item.getItemId() == R.id.profile_option ) {
+            if (!haveData) {
+                Toast.makeText(MainActivity.this, "Still loading, wait a second ", Toast.LENGTH_SHORT).show();
+            } else {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
 
-            View viewNote = LayoutInflater.from(MainActivity.this).inflate(R.layout.basic_info, null);
-            alertBuilder.setView(viewNote);
-            alertDialog = alertBuilder.create();
-            alertDialog.show();  //open a view to show info
+                View viewNote = LayoutInflater.from(MainActivity.this).inflate(R.layout.basic_info, null);
+                alertBuilder.setView(viewNote);
+                alertDialog = alertBuilder.create();
+                alertDialog.show();  //open a view to show info
 
-            //initialize Views in that view
-            final EditText newName = (EditText) viewNote.findViewById(R.id.new_name);
-            final EditText newAge = (EditText) viewNote.findViewById(R.id.new_age);
-            Button saveProfile = (Button) viewNote.findViewById(R.id.new_save);
-            TextView closeInfo = (TextView) viewNote.findViewById(R.id.close_info);
-            final TextView saveEditInfo = (TextView) viewNote.findViewById(R.id.save_edit_info);
+                //initialize Views in that view
+                final EditText newName = (EditText) viewNote.findViewById(R.id.new_name);
+                final EditText newAge = (EditText) viewNote.findViewById(R.id.new_age);
+                Button saveProfile = (Button) viewNote.findViewById(R.id.new_save);
+                TextView closeInfo = (TextView) viewNote.findViewById(R.id.close_info);
+                final TextView saveEditInfo = (TextView) viewNote.findViewById(R.id.save_edit_info);
 
-            newName.setText(accountInfoDatabase.name);
-            newAge.setText(accountInfoDatabase.age);
-            saveProfile.setVisibility(View.GONE);
-            closeInfo.setOnClickListener(new View.OnClickListener() {     //close the alart dialog
-                @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
+                try {
+                    newName.setText(accountInfoDatabase.name);
+                    newAge.setText(accountInfoDatabase.age);
+                } catch (Exception e) {
                 }
-            });
+                saveProfile.setVisibility(View.GONE);
+                closeInfo.setOnClickListener(new View.OnClickListener() {     //close the alart dialog
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
 
-            saveEditInfo.setVisibility(View.VISIBLE);
-            saveEditInfo.setOnClickListener(new View.OnClickListener() {  // save data and close alert dialog
-                @Override
-                public void onClick(View v) {
-                    mRef.child(accountInfoDatabase.id).setValue(new AccountInfoDatabase(accountInfoDatabase.id, accountInfoDatabase.email, newName.getText().toString(), newAge.getText().toString(), "https://just for test"));
-                    accountInfoDatabase.name = newName.getText().toString();
-                    accountInfoDatabase.age = newAge.getText().toString();
-                    alertDialog.dismiss();
-                    saveEditInfo.setVisibility(View.GONE);
-                }
-            });
+                saveEditInfo.setVisibility(View.VISIBLE);
+                saveEditInfo.setOnClickListener(new View.OnClickListener() {  // save data and close alert dialog
+                    @Override
+                    public void onClick(View v) {
+                        mRef.child(accountInfoDatabase.id).setValue(new AccountInfoDatabase(accountInfoDatabase.id, accountInfoDatabase.email, newName.getText().toString(), newAge.getText().toString(), "https://just for test"));
+                        accountInfoDatabase.name = newName.getText().toString();
+                        accountInfoDatabase.age = newAge.getText().toString();
+                        alertDialog.dismiss();
+                        saveEditInfo.setVisibility(View.GONE);
+                    }
+                });
+            }
         }
 
         return true;
